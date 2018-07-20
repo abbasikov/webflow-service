@@ -1,6 +1,6 @@
-package guru.springframework.controllers;
+package com.viome.controllers;
 
-import guru.springframework.models.Product;
+import com.viome.models.Product;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

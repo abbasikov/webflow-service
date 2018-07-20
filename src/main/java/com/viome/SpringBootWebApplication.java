@@ -1,4 +1,4 @@
-package guru.springframework;
+package com.viome;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

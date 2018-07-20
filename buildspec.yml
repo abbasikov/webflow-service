@@ -12,6 +12,8 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_REPO_NAME=639670031158.dkr.ecr.us-east-1.amazonaws.com/webflow-service
+      - AWS_ACCOUNT_ID=639670031158
       - echo $IMAGE_REPO_NAME
       - echo $IMAGE_TAG
       - echo $AWS_ACCOUNT_ID
@@ -21,6 +23,7 @@ phases:
     commands:
       - pwd
       - ls -all
+      - mvn clean install
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
@@ -31,6 +34,6 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
-      - printf '[{"name":"pimax-container","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"webflow-service-container","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.json
 artifacts:
     files: imagedefinitions.json

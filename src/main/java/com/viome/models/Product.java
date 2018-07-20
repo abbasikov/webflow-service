@@ -1,4 +1,4 @@
-package guru.springframework.models;
+package com.viome.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
