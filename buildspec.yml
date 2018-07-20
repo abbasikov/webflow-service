@@ -4,6 +4,7 @@ phases:
   install:
     commands:
       - echo Entered the install phase...
+      - update-java-alternatives --list
       - apt-get update -y
       - apt-get install -y java8
       - apt-get install -y maven
