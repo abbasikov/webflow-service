@@ -16,7 +16,6 @@ phases:
     commands:
       - pwd
       - ls -all
-      - mvn clean install
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
